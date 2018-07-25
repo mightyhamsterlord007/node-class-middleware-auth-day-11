@@ -5,7 +5,7 @@ module.exports = {
         console.log('HELLO CLASSSSSS');
         next();
     },
-    checkIfAnimalNameExist: function(req, res, next) {
+    checkIfAnimalNameExists: function(req, res, next) {
         
         const name = req.body.name;
 
@@ -22,11 +22,12 @@ module.exports = {
             if (result === null) {
                 next();
             } else {
-                console.log(result)
-                res.json({
-                    message: 'User already exist',
-                    data: result
-                });
+                // console.log(result)
+                // res.json({
+                //     message: 'User already exists',
+                //     data: result
+                // });
+                res.render('animal', {error: 'User already exists'});
             }
         });
 
